@@ -1,14 +1,17 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include<locale.h>
+#include <locale.h>
 #include <windows.h>
+#include <conio.h>
+#define TAMANHO 50
 
 /* o codigo utiliza a linguagem operacional da maquina */
 
 int main()
 {
-    char nome [80];
-    int marca, modelo_fiat, conclu, forma_pagamento, modelo_volks, modelo_chevrolet, modelo_corolla,cep,numero_casa, i;
+    system ("color F0");
+    char nome [80],dicas[TAMANHO];
+    int marca, modelo_fiat, conclu, forma_pagamento, modelo_volks, modelo_chevrolet, modelo_corolla,cep,numero_casa, i, avaliacao;
     float carro, financiamento, parcelas;
     setlocale(LC_ALL,"");
     do{
@@ -761,6 +764,21 @@ switch(marca==4)
 
     }while(i==1);
     printf("\n");
+
+    printf("AVALIE NOSSO PROGRAMA DE 0 A 10: ");
+    scanf("%d",&avaliacao);
+
+    if (avaliacao >= 0 && avaliacao < 6)
+    {
+        printf("DÊ DICAS PARA MELHORARMOS: ");
+        setbuf(stdin, NULL);
+        scanf("%[^\n]s", dicas);
+    }
+
+    else
+    {
+        printf("\nOBRIGADO POR UTILIZAR NOSSO PROGRAMA!!!");
+    }
 
     printf("\n\n\n__________________________________________________________________________________\n");
     printf("\t\tTRABALHO DE PROGRAMAÇÃO DE COMPUTADORES\n\nTEMA = CONCESSIONÁRIA DE CARROS\nALUNOS = YURI FERREIRA, HUMBERTO CUNHA, ARTHUR RIBEIRO\nPROFESSORA = TATIANA AZEVEDO");
