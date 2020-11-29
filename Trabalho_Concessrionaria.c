@@ -5,13 +5,25 @@
 #include <conio.h>
 #define TAMANHO 50
 
+
 /* o codigo utiliza a linguagem operacional da maquina */
+
+/*int(forma_pagamento){
+    //financiamento
+
+}*/
+struct dados_comprador
+{
+    char nome[80];
+    int cep, numero_casa, cpf[11];
+}comprador;
 
 int main()
 {
     system ("color F0");
-    char nome [80],dicas[TAMANHO];
-    int marca, modelo_fiat, conclu, forma_pagamento, modelo_volks, modelo_chevrolet, modelo_corolla,cep,numero_casa, i, avaliacao;
+    FILE *pont_arq; /* cria variável ponteiro para o arquivo */
+    char dicas[TAMANHO];
+    int marca, modelo_fiat, conclu, forma_pagamento, modelo_volks, modelo_chevrolet, modelo_corolla, i, avaliacao;
     float carro, financiamento, parcelas;
     setlocale(LC_ALL,"");
     do{
@@ -24,11 +36,13 @@ int main()
     scanf("%i", &marca);
     printf("DIGITE O NOME COMPLETO DO CLIENTE: ");
     setbuf(stdin, NULL);
-    scanf("%[^\n]s", nome);
+    scanf("%[^\n]s", comprador.nome);
     printf("INFORME O CEP DA SUA CASA: ");
-    scanf("%i",&cep);
+    scanf("%i",&comprador.cep);
     printf("INFORME O NUMERO DA SUA CASA: ");
-    scanf("%i",&numero_casa);
+    scanf("%i",&comprador.numero_casa);
+    printf("INFORME O CPF: ");
+    scanf("%i", &comprador.cpf);
 
 
     switch(marca)
@@ -65,16 +79,16 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$120.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT TORO!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT TORO!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=120000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT TORO!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT TORO!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
 
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
@@ -106,8 +120,8 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$43.000,00");
-                            printf("\nPARABÉNS %s VOÇE ADQUIRIU UMA FIAT STRADA 2019", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOÇE ADQUIRIU UMA FIAT STRADA 2019", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
 
                         break;
                         case 2:
@@ -115,8 +129,8 @@ int main()
                             scanf("%f", &parcelas);
                             financiamento=43000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UMA FIAT STRADA 2019!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UMA FIAT STRADA 2019!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
 
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
@@ -149,8 +163,8 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$40.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT GRAN SIENA!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT GRAN SIENA!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
 
                         break;
                         case 2:
@@ -158,8 +172,8 @@ int main()
                             scanf("%f", &parcelas);
                             financiamento=40000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT GRAN SIENA!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT GRAN SIENA!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
 
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
@@ -192,8 +206,8 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$57.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT PALIO!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT PALIO!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
 
                         break;
                         case 2:
@@ -201,8 +215,8 @@ int main()
                             scanf("%f", &parcelas);
                             financiamento=57000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT PALIO!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM FIAT PALIO!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
 
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
@@ -254,16 +268,16 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$151.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW GOLF!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW GOLF!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=151000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW GOLF!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW GOLF!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -294,16 +308,16 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$70.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW POLO!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW POLO!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=70000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW POLO!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW POLO!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -335,16 +349,16 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$150.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW JETTA!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW JETTA!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=150000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW JETTA!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW JETTA!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -376,16 +390,16 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$100.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW T-CROSS!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW T-CROSS!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=100000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW T-CROSS!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM VW T-CROSS!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -434,16 +448,16 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$110.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET CRUZE!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET CRUZE!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=110000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET CRUZE!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET CRUZE!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -474,16 +488,16 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$66.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET ONIX!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET ONIX!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=66000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET ONIX!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET ONIX!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -515,16 +529,16 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$109.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET TRACKER!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET TRACKER!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=109000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET TRACKER!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET TRACKER!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -556,16 +570,16 @@ int main()
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$370.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET CAMARO!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET CAMARO!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=370000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET CAMARO!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM CHVROLET CAMARO!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -613,16 +627,16 @@ switch(marca==4)
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$145.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA COROLLA!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA COROLLA!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=145000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA COROLLA!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA COROLLA!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -653,16 +667,16 @@ switch(marca==4)
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$88.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA YARIS!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA YARIS!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=88000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA YARIS!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA YARIS!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -694,16 +708,16 @@ switch(marca==4)
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$220.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA SW4!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA SW4!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=220000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA SW4!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA SW4!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -735,16 +749,16 @@ switch(marca==4)
                     {
                         case 1:
                             printf("VALOR UMA PARCELA DE R$57.000,00");
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA ETIOS!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA ETIOS!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         case 2:
                             printf("INFORME A QUANTIDADE DE PARCELAS QUE DESEJA PAGAR: ");
                             scanf("%f", &parcelas);
                             financiamento=57000.00/parcelas;
                             printf("\nVALOR A PAGAR SÃO %.2f PARCELAS DE R$%.2f.\n\n", parcelas, financiamento);
-                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA ETIOS!!", nome);
-                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",cep,numero_casa);
+                            printf("\nPARABÉNS %s VOCÊ ACABOU DE ADQUIRIR UM TOYOTA ETIOS!!", comprador.nome);
+                            printf("\nSEU CARRO SERÁ ENTREGUE NO CEP %i, NA CASA NUMERO %i",comprador.cep,comprador.numero_casa);
                         break;
                         default: printf("OPÇÃO INVÁLIDA!\n");
                     }
@@ -768,11 +782,34 @@ switch(marca==4)
     printf("AVALIE NOSSO PROGRAMA DE 0 A 10: ");
     scanf("%d",&avaliacao);
 
+
+
+    //abrindo o arquivo com tipo de abertura w
+    pont_arq = fopen("arquivo_palavra.txt", "w");
+
+    //testando se o arquivo foi realmente criado
+    if(pont_arq == NULL)
+    {
+    printf("Erro na abertura do arquivo!");
+    return 1;
+    }
+
+
+
     if (avaliacao >= 0 && avaliacao < 6)
     {
         printf("DÊ DICAS PARA MELHORARMOS: ");
         setbuf(stdin, NULL);
         scanf("%[^\n]s", dicas);
+
+    //usando fprintf para armazenar a string no arquivo
+    fprintf(pont_arq, "%s", dicas);
+
+    //usando fclose para fechar o arquivo
+    fclose(pont_arq);
+
+    printf("\n\nOBRIGADO POR COLABORAR COM A GENTE!");
+
     }
 
     else
