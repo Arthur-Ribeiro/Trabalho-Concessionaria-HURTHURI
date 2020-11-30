@@ -24,7 +24,7 @@ int main()
     FILE *pont_arq; /* cria variável ponteiro para o arquivo */
     char dicas[TAMANHO];
     int marca, modelo_fiat, conclu, forma_pagamento, modelo_volks, modelo_chevrolet, modelo_corolla, i, avaliacao;
-    float carro, financiamento, parcelas;
+    float financiamento, parcelas;
     setlocale(LC_ALL,"");
     do{
     printf("\n________________________________________________________________________________________________________________________\n");
